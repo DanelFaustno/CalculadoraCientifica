@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibGit2Sharp;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -401,5 +402,59 @@ namespace CalculadoraCientifica
         {
             public double Potencia(double baseNumero, double exponente) => Math.Pow(baseNumero, exponente);
         }
+
+        private void button33_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string repoPath = @"C:\Users\DANIEL\source\repos\CalculadoraCientifica\NewRepo2"; // Ruta del repositorio
+                string remoteRepoUrl = "https://github.com/DanelFaustno/CalculadoraCientifica.git"; // URL del repositorio
+
+                // Clonar el repositorio si no existe
+                if (!System.IO.Directory.Exists(repoPath))
+                {
+                    Repository.Clone(remoteRepoUrl, repoPath);
+                    MessageBox.Show("Repositorio clonado exitosamente.");
+                }
+                else
+                {
+                    using (var repo = new Repository(repoPath))
+                    {
+                        // Hacer fetch y pull para obtener los últimos cambios
+                        Commands.Fetch(repo, "origin", null, null, null);
+                        var signature = repo.Config.BuildSignature(DateTimeOffset.Now);
+                        var result = Commands.Pull(repo, signature, null);
+
+                        // Cambiar PullStatus a MergeStatus
+                        if (result.Status == MergeStatus.UpToDate)
+                        {
+                            MessageBox.Show("El repositorio está actualizado.");
+                        }
+                        else if (result.Status == MergeStatus.Conflicts)
+                        {
+                            MessageBox.Show("Hay conflictos en la actualización. Resuélvelos manualmente.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Actualización completa.");
+                            ActualizarInterfaz(); // Método para refrescar la UI
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar: " + ex.Message);
+            }
+        }
+
+        private void ActualizarInterfaz()
+        {
+            // Aquí puedes agregar la lógica para actualizar la UI
+            // Por ejemplo, puedes recargar controles o datos, o incluso reiniciar la aplicación
+            // Si haces cambios en el código, puede que necesites reiniciar la aplicación
+        }
+
+
     }
 }

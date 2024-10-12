@@ -65,6 +65,7 @@ namespace CalculadoraCientifica
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.button33 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -88,12 +89,13 @@ namespace CalculadoraCientifica
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.Red;
             this.button2.Location = new System.Drawing.Point(12, 84);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(172, 35);
             this.button2.TabIndex = 3;
             this.button2.Text = "CE";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // button5
             // 
@@ -371,12 +373,13 @@ namespace CalculadoraCientifica
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.Red;
             this.button1.Location = new System.Drawing.Point(206, 84);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(109, 35);
             this.button1.TabIndex = 37;
             this.button1.Text = "C";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
@@ -392,16 +395,30 @@ namespace CalculadoraCientifica
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Location = new System.Drawing.Point(401, 87);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(113, 35);
+            this.button4.Size = new System.Drawing.Size(45, 35);
             this.button4.TabIndex = 39;
             this.button4.Text = "←";
             this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button33
+            // 
+            this.button33.BackColor = System.Drawing.Color.Lime;
+            this.button33.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button33.Location = new System.Drawing.Point(469, 84);
+            this.button33.Name = "button33";
+            this.button33.Size = new System.Drawing.Size(45, 35);
+            this.button33.TabIndex = 40;
+            this.button33.Text = "ACT";
+            this.button33.UseVisualStyleBackColor = false;
+            this.button33.Click += new System.EventHandler(this.button33_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(522, 288);
+            this.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.ClientSize = new System.Drawing.Size(520, 283);
+            this.Controls.Add(this.button33);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
@@ -439,7 +456,7 @@ namespace CalculadoraCientifica
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "vvv";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -483,6 +500,7 @@ namespace CalculadoraCientifica
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button33;
     }
 }
 
